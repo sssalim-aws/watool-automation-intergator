@@ -1,0 +1,14 @@
+{
+  "name": "WAWorkloadHelper",
+  "version": "1.0.0",
+  "description": "WAWorkloadHelper",
+  "main": "WAWorkloadHelper.js",
+  "author": "sssalim@",
+  "license": "Apache",
+  "dependencies": {
+    "aws-sdk": "^2.0.0"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  }
+}

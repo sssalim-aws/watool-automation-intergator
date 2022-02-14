@@ -1,0 +1,81 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  watool-auto-integ
+
+  Sample SAM Template for watool-auto-integ
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 60
+
+Resources:
+  WAAutomationFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: watool-integ/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Layers:
+          - !Ref TAEventHelperlayer
+          - !Ref WAWorkloadHelperLayer
+      Environment:
+        Variables:
+          QuestionMapTable: !Ref QuestionMapTable
+
+  TAEventHelperlayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: TAEventHelper
+      Description: TAEventHelper
+      ContentUri: './layer/TAEventHelper'
+      CompatibleRuntimes:
+        - nodejs14.x
+      LicenseInfo: 'Available under the Apache-2.0 license.'
+      RetentionPolicy: Retain      
+
+  WAWorkloadHelperLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: WAWorkloadHelper
+      Description: WAWorkloadHelper
+      ContentUri: './layer/WAWorkloadHelper'
+      CompatibleRuntimes:
+        - nodejs14.x
+      LicenseInfo: 'Available under the Apache-2.0 license.'
+      RetentionPolicy: Retain      
+
+  QuestionMapTable:
+    Type: AWS::DynamoDB::Table
+    Properties: 
+      AttributeDefinitions: 
+        - AttributeName: CheckId
+          AttributeType: S
+        - AttributeName: CheckSource
+          AttributeType: S
+      KeySchema: 
+        - AttributeName: CheckId
+          KeyType: HASH
+        - AttributeName: CheckSource
+          KeyType: RANGE
+      ProvisionedThroughput: 
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+     
+        
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  # WAAutomationApi:
+  #   Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+  #   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  WAAutomationFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt WAAutomationFunction.Arn
+  WAAutomationFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt WAAutomationFunctionRole.Arn

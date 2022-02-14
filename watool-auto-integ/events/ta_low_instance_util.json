@@ -1,0 +1,40 @@
+{
+    "version": "0",
+    "id": "d2e7f07f-b612-eccf-9aa8-c4323b13619f",
+    "detail-type": "Trusted Advisor Check Item Refresh Notification",
+    "source": "aws.trustedadvisor",
+    "account": "022787131977",
+    "time": "2022-01-25T04:40:25Z",
+    "region": "us-east-1",
+    "resources": [],
+    "detail": {
+        "check-name": "Low Utilization Amazon EC2 Instances",
+        "check-item-detail": {
+            "Day 1": "0.2%  0.05MB",
+            "Day 2": "0.2%  0.04MB",
+            "Day 3": "0.2%  0.04MB",
+            "Region/AZ": "us-east-1b",
+            "Estimated Monthly Savings": "$144.00",
+            "14-Day Average CPU Utilization": "0.2%",
+            "Day 14": "0.2%  0.04MB",
+            "Day 13": "0.2%  0.04MB",
+            "Day 12": "0.2%  0.04MB",
+            "Day 11": "0.2%  0.09MB",
+            "Day 10": "0.2%  0.04MB",
+            "14-Day Average Network I/O": "0.05MB",
+            "Number of Days Low Utilization": "14 days",
+            "Instance Type": "m4.xlarge",
+            "Instance ID": "i-0d3219267cda28f83",
+            "Day 8": "0.2%  0.05MB",
+            "Instance Name": "dailyjoke-stack-asg/webserver-asg",
+            "Day 9": "0.2%  0.04MB",
+            "Day 4": "0.2%  0.04MB",
+            "Day 5": "0.2%  0.04MB",
+            "Day 6": "0.2%  0.05MB",
+            "Day 7": "0.2%  0.04MB"
+        },
+        "status": "WARN",
+        "resource_id": "arn:aws:ec2:us-east-1:022787131977:instance/i-0d3219267cda28f83",
+        "uuid": "83b1f4ce-0669-4455-a0ad-294b6d1aff56"
+    }
+}

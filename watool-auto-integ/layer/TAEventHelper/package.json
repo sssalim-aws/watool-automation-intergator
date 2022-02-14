@@ -1,0 +1,14 @@
+{
+  "name": "TAEventHelper",
+  "version": "1.0.0",
+  "description": "TAEventHelper",
+  "main": "TAEventHelper.js",
+  "author": "sssalim@",
+  "license": "Apache",
+  "dependencies": {
+    "aws-sdk": "^2.0.0"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  }
+}
