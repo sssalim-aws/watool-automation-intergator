@@ -1,0 +1,17 @@
+{
+    "version": "0",
+    "id": "49afccb2-9be0-7878-654d-803e4b5f677f",
+    "detail-type": "Trusted Advisor Check Item Refresh Notification",
+    "source": "aws.trustedadvisor",
+    "account": "022787131977",
+    "time": "2022-02-05T14:32:52Z",
+    "region": "us-east-1",
+    "resources": [],
+    "detail": {
+        "check-name": "AWS Well-Architected high risk issues for cost optimization",
+        "check-item-detail": "{\"Status\":\"Red\",\"Number of identified HRIs for Cost Optimization\":\"2\",\"Last Updated Time\":\"2022-02-05T14:30:02.000Z\",\"Workload Type\":\"Production\",\"Workload Last Modified Date\":\"2022-02-04\",\"Workload Started Date\":\"2021-05-11\",\"Number of questions answered for Cost Optimization\":\"2\",\"Reviewer Name\":\"sssalim@amazon.com\",\"Number of HRIs resolved for Cost Optimization\":\"0\",\"Total number of questions in Cost Optimization pillar\":\"10\",\"Workload ARN\":\"arn:aws:wellarchitected:us-east-1:022787131977:workload/3de475e96c4b8932bbe825d5dbd389ff\",\"Workload Name\":\"test-workload\",\"Region\":\"us-west-2\"}",
+        "status": "ERROR",
+        "resource_id": "",
+        "uuid": "653d62e9-2df1-49aa-a59b-a9aa842d29c4"
+    }
+}
